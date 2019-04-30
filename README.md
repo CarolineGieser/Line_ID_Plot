@@ -7,7 +7,6 @@ Required Input Files:
     
     second column: molecule label
     
-    other columns can be ignored
 
 line_id.py:
 - extract spectrum (spatially averaged) from a datacube
