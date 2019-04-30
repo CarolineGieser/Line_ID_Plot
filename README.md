@@ -2,6 +2,7 @@
 Required Input Files:
 - .fits file of the datacube
 - TransitionProperties.dat
+
     first column: rest-frequency (GHz)
     second column: molecule label
     
