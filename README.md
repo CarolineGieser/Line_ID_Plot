@@ -1,4 +1,4 @@
-# Line_ID_Plot
+# Spectrum_Plot
 Required Input Files:
 - .fits file of the datacube
 - TransitionProperties.dat
