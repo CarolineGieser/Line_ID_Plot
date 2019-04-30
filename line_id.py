@@ -46,6 +46,7 @@ def extract_average_spectrum(datafile,restfreq,vlsr,min_DEC_pixel,max_DEC_pixel,
 	# extract average spectrum from data cube (X and Y)
 	# frequency unit (X): GHz (corrected for systemic velocity vlsr)
 	# flux unit (Y): Jy/beam
+	# save spectrum as .dat file
 	
 	cube = SpectralCube.read(datafile)  
 	cube2 = cube.with_spectral_unit(u.GHz, velocity_convention='radio',rest_value=restfreq * u.GHz)
@@ -80,8 +81,8 @@ def determine_noise(X, Y, min_channel, max_channel,show_plot=True):
 def load_line_table(data_tab):
 	# load table with identified transitions 
 	# first column: rest frequency (GHz)
-	# blended transitions are labeled with 'blended'
-	# second column: transition label (LATEX Format)
+	# blended transitions can be labeled with 'blended' in the first column
+	# second column: label for emission/absoprion line
 	
 	freq = data_tab[:,0]
 	molec = data_tab[:,1]
@@ -92,7 +93,7 @@ def load_line_table(data_tab):
 	return molec, frequency
 	
 def annotate_lines(frequency,X,Y,sigma,molec,Y_low_lim,Y_upp_lim):
-	# annotate transitions in plot
+	# annotate lines in plot
 	# annotate strong lines below spectrum & weak lines above spectrum (set by threshold parameter)
 	# y values at xytext in plt.annotate() should be adjusted by hand in order to avoid overlapping of the labels
 	threshold = 0.045*max(Y)
@@ -130,7 +131,7 @@ def plot_spectrum(X,Y,sigma,frequency,molec,restfreq,bmin,bmaj):
 	ax.axhline(y=5.0*sigma, xmin=0, xmax=1, ls='-', color='red',lw=0.5, label='5$\sigma$')
 	# add legend
 	ax.legend(numpoints=1, ncol=1,loc='upper left', fontsize=7)
-	# annotate transitions
+	# annotate lines
 	annotate_lines(frequency,X,Y,sigma,molec,Y_low_lim,Y_upp_lim)
 	# figure properties
 	plt.xlabel('Frequency [GHz]')
@@ -154,7 +155,9 @@ def plot_spectrum(X,Y,sigma,frequency,molec,restfreq,bmin,bmaj):
 	ymajor2 = MultipleLocator(10)
 	ax2.yaxis.set_major_locator(ymajor2)
 	
+	#save figure
 	plt.savefig('Average_spectrum.pdf', format='pdf', bbox_inches='tight')
+	plt.show()
 	plt.close()
 	
 ###----REQUIRED INPUT----###
