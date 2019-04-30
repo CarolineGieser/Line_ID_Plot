@@ -4,6 +4,7 @@ Required Input Files:
 - TransitionProperties.dat
 
     first column: rest-frequency (GHz)
+    
     second column: molecule label
     
     other columns can be ignored
