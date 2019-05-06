@@ -126,9 +126,9 @@ def plot_spectrum(X,Y,sigma,frequency,molec,restfreq,bmin,bmaj):
 	plt.figure(figsize=(10,6))
 	ax = plt.subplot(111)
 	# plot average spectrum
-	plt.plot(X,Y,'black',label='Data',linewidth=0.5)
+	plt.plot(X,Y,'black',label='Observed Flux Density',linewidth=0.5)
 	# plot 5-sigma line
-	ax.axhline(y=5.0*sigma, xmin=0, xmax=1, ls='-', color='red',lw=0.5, label='5$\sigma$')
+	ax.axhline(y=5.0*sigma, xmin=0, xmax=1, ls='-', color='red',lw=0.5, alpha=0.5, label='5$\sigma$')
 	# add legend
 	ax.legend(numpoints=1, ncol=1,loc='upper left', fontsize=7)
 	# annotate lines
