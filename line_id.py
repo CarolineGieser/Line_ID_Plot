@@ -165,7 +165,7 @@ def plot_spectrum(X,Y,sigma,frequency,molec,restfreq,bmin,bmaj):
 datafile = 'afgl2591_widex_all_contsub_robust0p1_clark-notmerged-pbcor.fits'
 
 # input table with identified transitions
-data_tab=np.loadtxt('TransitionProperties.dat',dtype='U',comments='#', delimiter='	')
+data_tab=np.loadtxt('TransitionProperties.dat',dtype='U',comments='#', delimiter=' ')
 
 # region which sets rectangle for average spectrum
 min_DEC_pixel = 500
