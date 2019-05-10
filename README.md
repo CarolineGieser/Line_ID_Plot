@@ -15,4 +15,8 @@ Required Input Files:
     first column: rest-frequency (GHz)
     
     second column: molecule label
+    
+    third column: transition quantum numbers (not needed!)
+    
+    fourth column: upper state energy levels (not needed!)
 
